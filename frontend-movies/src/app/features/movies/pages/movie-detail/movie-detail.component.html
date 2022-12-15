@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <div class="poster">
+      <img src="{{'https://image.tmdb.org/t/p/w500' + movie?.poster_path}}">
+    </div>
+    <div class="filmInformation">
+      <h2>{{movie?.title}}</h2>
+      <h3>Release date: {{movie?.release_date}}</h3>
+      <h3>Vote average: {{movie?.vote_average}}</h3>
+      <h3>{{movie?.overview}}</h3>
+      <div class="cast">
+        <h3>Cast:</h3>
+        <carousel>
+          <ng-container *ngFor="let cast of ($credits | async)">
+            <div class="carousel-cell">
+              <img [src]="'https://image.tmdb.org/t/p/w500' + cast?.profile_path" appImageBroken />
+            </div>
+          </ng-container>
+        </carousel>
+      </div>
+    </div>
+  </div>
+</div>

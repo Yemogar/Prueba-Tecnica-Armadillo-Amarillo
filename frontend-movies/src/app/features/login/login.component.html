@@ -1,0 +1,21 @@
+<div class="contenedor">
+  <div class="central">
+      <div class="login">
+          <div class="titulo">
+            Iniciar Sesión
+          </div>
+          <form class="login-form" (submit)="submit()">
+              <input type="text" name="usuario" placeholder="Usuario" [(ngModel)]="user.username" (input)="hideError()" required>
+              
+              <input type="password" placeholder="Contraseña" name="password" [(ngModel)]="user.password" (input)="hideError()" required>
+
+              <p *ngIf="showError">El usuario o contraseña son incorrectos.</p>
+              
+              <button type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
+          </form>
+          <div class="pie-form">
+              <a routerLink="/register">¿No tienes Cuenta? Registrate</a>
+          </div>
+      </div>
+  </div>
+</div>

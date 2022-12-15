@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="toolbar">
+    <h1>Películas en cines</h1>
+  </div>
+  <div class="moviesInTheater">
+    <carousel>
+      <ng-container *ngFor="let movie of ($moviesInTheater | async)">
+        <div class="carousel-cell" (click)="viewMovie(movie)">
+          <img src="{{'https://image.tmdb.org/t/p/w500' + movie.poster_path}}" appImageBroken />
+        </div>
+      </ng-container>
+    </carousel>
+  </div>
+  <div class="popularMovies">
+    <div class="toolbar">
+      <h1>Películas populares</h1>
+    </div>
+    <carousel>
+      <ng-container *ngFor="let movie of ($popularMovies | async)">
+        <div class="carousel-cell" (click)="viewMovie(movie)">
+          <img src="{{'https://image.tmdb.org/t/p/w500' + movie.poster_path}}" appImageBroken />
+        </div>
+      </ng-container>
+    </carousel>
+  </div>
+  <div class="buttons-container">
+    <button (click)="refreshMoviesInTheater()">Refrescar películas en cines</button>
+    <button (click)="refreshPopularMovies()">Refrescar películas populares</button>
+  </div>
+</div>

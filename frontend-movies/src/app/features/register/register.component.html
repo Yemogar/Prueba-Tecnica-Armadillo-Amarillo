@@ -1,0 +1,22 @@
+<div class="contenedor">
+  <div class="central">
+      <div class="register">
+          <div class="titulo">
+            Crear Cuenta
+          </div>
+          <form class="register-form" [formGroup]="registerForm" (submit)="register()">
+              <input type="text" name="usuario" formControlName="nombre" placeholder="Nombre" required>
+
+              <input type="text" name="apellidos" formControlName="apellidos" placeholder="Apellidos" required>
+
+              <input type="email" name="email" formControlName="username" placeholder="Email" required>
+              
+              <input type="password" placeholder="Contraseña" formControlName="password" name="password" required>
+
+              <input type="date" id="birthday" formControlName="fechaNacimiento" name="birthday" max="2018-12-31">
+             
+              <button type="submit" [disabled]="!registerForm.valid">Registrar</button>
+          </form>
+      </div>
+  </div>
+</div>
